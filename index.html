@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHVAULT - Магазин техники</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <nav>
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" style="vertical-align: middle; margin-right: 10px;">
+                    <rect x="5" y="5" width="30" height="30" fill="none" stroke="white" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="8" fill="white"/>
+                    <line x1="20" y1="5" x2="20" y2="35" stroke="white" stroke-width="1" opacity="0.5"/>
+                    <line x1="5" y1="20" x2="35" y2="20" stroke="white" stroke-width="1" opacity="0.5"/>
+                </svg>
+                TECHVAULT
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#products">Товары</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login" onclick="showLoginModal()">Вход</button>
+                <button class="btn-register" onclick="showRegisterModal()">Регистрация</button>
+                <div class="cart-icon" onclick="showCart()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M9 2L6 9H18L15 2M6 9H18L17 20H7L6 9Z"/>
+                        <circle cx="9" cy="22" r="1"/>
+                        <circle cx="15" cy="22" r="1"/>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">ТЕХНОЛОГИИ БУДУЩЕГО</h1>
+            <p class="hero-subtitle">Премиальная техника в монохромном стиле</p>
+            <button class="btn-hero" onclick="scrollToProducts()">Каталог товаров</button>
+        </div>
+        <div class="geometric-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+        </div>
+    </section>
+
+    <!-- Секция товаров -->
+    <section class="products" id="products">
+        <h2 class="section-title">НАШИ ТОВАРЫ</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400" alt="Ноутбук">
+                    <div class="product-overlay">
+                        <button class="btn-quick-view">Быстрый просмотр</button>
+                    </div>
+                </div>
+                <h3>Ультрабук Pro</h3>
+                <p class="product-description">Мощный ноутбук для профессионалов</p>
+                <p class="price">89 990 ₽</p>
+                <button class="btn-add-cart" onclick="addToCart('Ультрабук Pro', 89990)">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400" alt="Смартфон">
+                    <div class="product-overlay">
+                        <button class="btn-quick-view">Быстрый просмотр</button>
+                    </div>
+                </div>
+                <h3>Смартфон X12</h3>
+                <p class="product-description">Флагман с передовыми технологиями</p>
+                <p class="price">74 990 ₽</p>
+                <button class="btn-add-cart" onclick="addToCart('Смартфон X12', 74990)">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" alt="Смарт-часы">
+                    <div class="product-overlay">
+                        <button class="btn-quick-view">Быстрый просмотр</button>
+                    </div>
+                </div>
+                <h3>Smart Watch Ultra</h3>
+                <p class="product-description">Умные часы нового поколения</p>
+                <p class="price">34 990 ₽</p>
+                <button class="btn-add-cart" onclick="addToCart('Smart Watch Ultra', 34990)">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Наушники">
+                    <div class="product-overlay">
+                        <button class="btn-quick-view">Быстрый просмотр</button>
+                    </div>
+                </div>
+                <h3>Audio Pro Max</h3>
+                <p class="product-description">Беспроводные наушники Hi-Fi</p>
+                <p class="price">29 990 ₽</p>
+                <button class="btn-add-cart" onclick="addToCart('Audio Pro Max', 29990)">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1606986628253-05620e9b0a80?w=400" alt="Планшет">
+                    <div class="product-overlay">
+                        <button class="btn-quick-view">Быстрый просмотр</button>
+                    </div>
+                </div>
+                <h3>Tablet Pro 12</h3>
+                <p class="product-description">Планшет для творчества и работы</p>
+                <p class="price">64 990 ₽</p>
+                <button class="btn-add-cart" onclick="addToCart('Tablet Pro 12', 64990)">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400" alt="Камера">
+                    <div class="product-overlay">
+                        <button class="btn-quick-view">Быстрый просмотр</button>
+                    </div>
+                </div>
+                <h3>Cinema Camera 8K</h3>
+                <p class="product-description">Профессиональная камера</p>
+                <p class="price">149 990 ₽</p>
+                <button class="btn-add-cart" onclick="addToCart('Cinema Camera 8K', 149990)">В корзину</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно входа -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Вход в аккаунт</h2>
+            <form class="auth-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Пароль" required>
+                <button type="submit" class="btn-submit">Войти</button>
+                <p class="form-footer">Нет аккаунта? <a href="#" onclick="showRegisterModal(); closeModal('loginModal')">Зарегистрируйтесь</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно регистрации -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Регистрация</h2>
+            <form class="auth-form">
+                <input type="text" placeholder="Имя" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Пароль" required>
+                <input type="password" placeholder="Подтвердите пароль" required>
+                <button type="submit" class="btn-submit">Зарегистрироваться</button>
+                <p class="form-footer">Есть аккаунт? <a href="#" onclick="showLoginModal(); closeModal('registerModal')">Войдите</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно корзины -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content cart-modal">
+            <span class="close" onclick="closeModal('cartModal')">&times;</span>
+            <h2>Корзина</h2>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Корзина пуста</p>
+            </div>
+            <div class="cart-total">
+                <h3>Итого: <span id="totalPrice">0 ₽</span></h3>
+                <button class="btn-checkout" onclick="showPaymentModal()">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно оплаты -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content payment-modal">
+            <span class="close" onclick="closeModal('paymentModal')">&times;</span>
+            <h2>Оплата заказа</h2>
+            <form class="payment-form">
+                <div class="form-section">
+                    <h3>Данные получателя</h3>
+                    <input type="text" placeholder="ФИО" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Адрес доставки" required>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Данные карты</h3>
+                    <input type="text" placeholder="Номер карты" maxlength="19" required>
+                    <div class="card-row">
+                        <input type="text" placeholder="MM/YY" maxlength="5" required>
+                        <input type="text" placeholder="CVV" maxlength="3" required>
+                    </div>
+                    <input type="text" placeholder="Имя держателя карты" required>
+                </div>
+                
+                <div class="total-payment">
+                    <h3>К оплате: <span id="paymentTotal">0 ₽</span></h3>
+                </div>
+                
+                <button type="submit" class="btn-pay">Оплатить</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>TECHVAULT</h3>
+                <p>Премиальная техника для вашего будущего</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#products">Товары</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>📧 info@techvault.ru</p>
+                <p>📞 +7 (999) 123-45-67</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TECHVAULT. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
