@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameStore - Магазин игр</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">▶</span>
+                <span class="logo-text">GameStore</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Главная</a>
+                <a href="#games">Игры</a>
+                <a href="#about">О нас</a>
+                <a href="#contact">Контакты</a>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn-login" onclick="showLogin()">Войти</button>
+                <button class="btn-register" onclick="showRegister()">Регистрация</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Think.<span class="highlight">Play.</span>Win.
+            </h1>
+            <p class="hero-subtitle">Лучшие игры по лучшим ценам. Мгновенная доставка.</p>
+            <button class="btn-primary" onclick="scrollToGames()">Смотреть каталог</button>
+        </div>
+    </section>
+
+    <section id="games" class="games-section">
+        <div class="container">
+            <h2 class="section-title">Популярные игры</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">GAME 1</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Cyber Legends 2077</h3>
+                        <p class="game-genre">Action, RPG</p>
+                        <div class="game-footer">
+                            <span class="game-price">1299 ₽</span>
+                            <button class="btn-buy" onclick="buyGame('Cyber Legends 2077', 1299)">Купить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">GAME 2</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Dark Souls Legacy</h3>
+                        <p class="game-genre">Action, Adventure</p>
+                        <div class="game-footer">
+                            <span class="game-price">999 ₽</span>
+                            <button class="btn-buy" onclick="buyGame('Dark Souls Legacy', 999)">Купить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">GAME 3</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Speed Racing Ultimate</h3>
+                        <p class="game-genre">Racing, Sports</p>
+                        <div class="game-footer">
+                            <span class="game-price">799 ₽</span>
+                            <button class="btn-buy" onclick="buyGame('Speed Racing Ultimate', 799)">Купить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">GAME 4</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Warfare Tactics</h3>
+                        <p class="game-genre">Strategy, War</p>
+                        <div class="game-footer">
+                            <span class="game-price">1499 ₽</span>
+                            <button class="btn-buy" onclick="buyGame('Warfare Tactics', 1499)">Купить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">GAME 5</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Mystery Manor</h3>
+                        <p class="game-genre">Horror, Puzzle</p>
+                        <div class="game-footer">
+                            <span class="game-price">599 ₽</span>
+                            <button class="btn-buy" onclick="buyGame('Mystery Manor', 599)">Купить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">GAME 6</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Space Explorer</h3>
+                        <p class="game-genre">Sci-Fi, Adventure</p>
+                        <div class="game-footer">
+                            <span class="game-price">899 ₽</span>
+                            <button class="btn-buy" onclick="buyGame('Space Explorer', 899)">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Вход</h2>
+            <form onsubmit="handleLogin(event)">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Пароль" required>
+                <button type="submit" class="btn-submit">Войти</button>
+            </form>
+            <p class="modal-footer">Нет аккаунта? <a href="#" onclick="switchToRegister()">Зарегистрироваться</a></p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Регистрация</h2>
+            <form onsubmit="handleRegister(event)">
+                <input type="text" placeholder="Имя" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Пароль" required>
+                <input type="password" placeholder="Повторите пароль" required>
+                <button type="submit" class="btn-submit">Зарегистрироваться</button>
+            </form>
+            <p class="modal-footer">Уже есть аккаунт? <a href="#" onclick="switchToLogin()">Войти</a></p>
+        </div>
+    </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('paymentModal')">&times;</span>
+            <h2>Оплата</h2>
+            <div class="payment-info">
+                <p><strong>Игра:</strong> <span id="paymentGame"></span></p>
+                <p><strong>Цена:</strong> <span id="paymentPrice"></span> ₽</p>
+            </div>
+            <form onsubmit="handlePayment(event)">
+                <input type="text" placeholder="Номер карты" maxlength="19" required>
+                <div class="form-row">
+                    <input type="text" placeholder="ММ/ГГ" maxlength="5" required>
+                    <input type="text" placeholder="CVV" maxlength="3" required>
+                </div>
+                <input type="text" placeholder="Имя на карте" required>
+                <button type="submit" class="btn-submit">Оплатить</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboardModal" class="modal dashboard-modal">
+        <div class="modal-content dashboard-content">
+            <span class="close" onclick="closeModal('dashboardModal')">&times;</span>
+            <div class="dashboard-header">
+                <h2>Личный кабинет</h2>
+                <button class="btn-logout" onclick="handleLogout()">Выйти</button>
+            </div>
+            <div class="dashboard-body">
+                <div class="user-info">
+                    <h3>Информация</h3>
+                    <p><strong>Email:</strong> <span id="userEmail">user@example.com</span></p>
+                    <p><strong>Игр куплено:</strong> <span id="gamesCount">0</span></p>
+                </div>
+                <div class="user-games">
+                    <h3>Мои игры</h3>
+                    <div id="gamesList" class="games-list">
+                        <p class="empty-state">У вас пока нет игр</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
